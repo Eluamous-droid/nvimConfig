@@ -162,24 +162,16 @@ require('lazy').setup({
   require 'kickstart.plugins.autoformat',
   require 'kickstart.plugins.debug',
 
-  -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
-  --    You can use this folder to prevent any conflicts with this init.lua if you're interested in keeping
-  --    up-to-date with whatever is in the kickstart repo.
-  --    Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  --
-  --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-
-
--- Calltree plugin 
+  -- Calltree plugin
   "ldelossa/litee.nvim",
-  {"ldelossa/litee-calltree.nvim", lazy = false},
+  { "ldelossa/litee-calltree.nvim", lazy = false },
 
   "ThePrimeagen/harpoon",
   "mfussenegger/nvim-jdtls",
 }, {})
-require ("core.options.options")
-require ("core.options.remap")
-require ("core.plugins")
+require("core.options.options")
+require("core.options.remap")
+require("core.plugins")
 
 
 
