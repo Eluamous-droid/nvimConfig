@@ -115,6 +115,11 @@ require('lazy').setup({
   },
 
   {
+    "folke/zen-mode.nvim",
+    opts = {}
+  },
+
+  {
     -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
     -- Enable `lukas-reineke/indent-blankline.nvim`
