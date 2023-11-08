@@ -1,14 +1,20 @@
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 
-local workspace_dir = '/path/to/workspace-root/' .. project_name
+local api = vim.api
+local jdtls = require('jdtls')
+local root_markers = { 'gradlew', '.git' }
+local root_dir = require('jdtls.setup').find_root(root_markers)
+local home = os.getenv('HOME')
+
+local workspace_dir = '/Users/dk000258/Documents/nvimprojectfiles' .. project_name
 local config = {
   -- The command that starts the language server
   -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
   cmd = {
 
     -- 💀
-    '/opt/homebrew/Cellar/openjdk/21/bin/java', -- or '/path/to/java17_or_newer/bin/java'
+    '/opt/homebrew/Cellar/openjdk@17/17.0.8.1/bin/java', -- or '/path/to/java17_or_newer/bin/java'
     -- depends on if `java` is in your $PATH env variable and if it points to the right version.
 
     '-Declipse.application=org.eclipse.jdt.ls.core.id1',
@@ -50,15 +56,65 @@ local config = {
   -- for a list of options
   settings = {
     java = {
-      {
-        name = "JavaSE-1.8",
-        path = "/Library/Java/JavaVirtualMachines/jdk1.8.0_311.jdk/Contents/Home/jre/",
+      autobuild = { enabled = false },
+      maxConcurrentBuilds = 8,
+      signatureHelp = { enabled = true },
+      contentProvider = { preferred = 'fernflower' },
+      saveActions = {
+        organizeImports = true,
       },
-      {
-        name = "JavaSE-17",
-        path = "/opt/homebrew/Cellar/openjdk@17/17.0.8.1/",
+      completion = {
+        favoriteStaticMembers = {
+          "io.crate.testing.Asserts.assertThat",
+          "org.assertj.core.api.Assertions.assertThat",
+          "org.assertj.core.api.Assertions.assertThatThrownBy",
+          "org.assertj.core.api.Assertions.assertThatExceptionOfType",
+          "org.assertj.core.api.Assertions.catchThrowable",
+          "org.hamcrest.MatcherAssert.assertThat",
+          "org.hamcrest.Matchers.*",
+          "org.hamcrest.CoreMatchers.*",
+          "org.junit.jupiter.api.Assertions.*",
+          "java.util.Objects.requireNonNull",
+          "java.util.Objects.requireNonNullElse",
+          "org.mockito.Mockito.*",
+        },
+        filteredTypes = {
+          "com.sun.*",
+          "io.micrometer.shaded.*",
+          "java.awt.*",
+          "jdk.*",
+          "sun.*",
+        },
       },
-    }
+      sources = {
+        organizeImports = {
+          starThreshold = 9999,
+          staticStarThreshold = 9999,
+        },
+      },
+      codeGeneration = {
+        toString = {
+          template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}"
+        },
+        hashCodeEquals = {
+          useJava7Objects = true,
+        },
+        useBlocks = true,
+      },
+      configuration = {
+        runtimes = {
+          {
+            name = "JavaSE-1.8",
+            path = "/Library/Java/JavaVirtualMachines/jdk1.8.0_311.jdk/Contents/Home/jre/",
+          },
+          {
+            name = "JavaSE-17",
+            path = "/opt/homebrew/Cellar/openjdk@17/17.0.8.1/",
+          },
+        }
+      },
+    },
+
   },
 
   -- Language server `initializationOptions`
@@ -72,7 +128,25 @@ local config = {
     bundles = {}
   },
 }
+
+-- This bundles definition is the same as in the previous section (java-debug installation)
+local bundles = {
+  vim.fn.glob(
+    "/Users/dk000258/Documents/ForFun/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar",
+    1),
+};
+
+-- This is the new part
+vim.list_extend(bundles,
+  vim.split(vim.fn.glob("/Users/dk000258/Documents/ForFun/vscode-java-test/server/*.jar", 1), "\n"))
+config['init_options'] = {
+  bundles = bundles,
+}
+
+vim.keymap.set('n', "<leader>xd", "<cmd>lua require'jdtls'.test_class()<cr>")
+vim.keymap.set('n', "<leader>xc", "<cmd>lua require'jdtls'.test_nearest_method()<cr>")
+vim.keymap.set("n", "<leader>bb", "<cmd>lua require'dap'.toggle_breakpoint()<cr>")
+
 -- This starts a new client & server,
 -- or attaches to an existing client & server depending on the `root_dir`.
 require('jdtls').start_or_attach(config)
-

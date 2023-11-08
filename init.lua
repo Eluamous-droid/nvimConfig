@@ -174,6 +174,7 @@ require('lazy').setup({
 
   "ThePrimeagen/harpoon",
   "mfussenegger/nvim-jdtls",
+  "mfussenegger/nvim-dap",
 }, {})
 require("core.options.options")
 require("core.options.remap")
