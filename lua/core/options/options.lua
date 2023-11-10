@@ -1,4 +1,4 @@
-vim.cmd [[colorscheme tokyonight]]
+vim.cmd [[colorscheme nordic]]
 -- [[ Setting options ]]
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
@@ -9,6 +9,8 @@ vim.o.hlsearch = false
 -- Make line numbers default
 vim.wo.number = true
 vim.wo.relativenumber = true
+
+vim.o.cursorline = true
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
