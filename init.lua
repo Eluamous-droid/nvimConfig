@@ -40,6 +40,7 @@ require('lazy').setup({
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
       { 'j-hui/fidget.nvim',       tag = 'legacy', opts = {} },
 
+      "mfussenegger/nvim-jdtls",
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
     },
@@ -173,8 +174,6 @@ require('lazy').setup({
   { "ldelossa/litee-calltree.nvim", lazy = false },
 
   "ThePrimeagen/harpoon",
-  "mfussenegger/nvim-jdtls",
-  "mfussenegger/nvim-dap",
 }, {})
 require("core.options.options")
 require("core.options.remap")

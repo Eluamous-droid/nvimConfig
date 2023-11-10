@@ -7,8 +7,11 @@ local root_markers = { 'gradlew', '.git' }
 local root_dir = require('jdtls.setup').find_root(root_markers)
 local home = os.getenv('HOME')
 
-local workspace_dir = '/Users/dk000258/Documents/nvimprojectfiles' .. project_name
+
+local workspace_dir = '/Users/dk000258/Documents/nvimprojectfiles/' .. project_name
 local config = {
+
+  on_attach = on_attach,
   -- The command that starts the language server
   -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
   cmd = {
@@ -142,11 +145,8 @@ vim.list_extend(bundles,
 config['init_options'] = {
   bundles = bundles,
 }
-
 vim.keymap.set('n', "<leader>xd", "<cmd>lua require'jdtls'.test_class()<cr>")
 vim.keymap.set('n', "<leader>xc", "<cmd>lua require'jdtls'.test_nearest_method()<cr>")
-vim.keymap.set("n", "<leader>bb", "<cmd>lua require'dap'.toggle_breakpoint()<cr>")
-
 -- This starts a new client & server,
 -- or attaches to an existing client & server depending on the `root_dir`.
 require('jdtls').start_or_attach(config)
