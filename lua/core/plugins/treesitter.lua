@@ -38,19 +38,19 @@ vim.defer_fn(function()
         enable = true,
         set_jumps = true, -- whether to set jumps in the jumplist
         goto_next_start = {
-          [',m'] = '@function.outer',
+          ['}}'] = '@function.outer',
           [']]'] = '@class.outer',
         },
         goto_next_end = {
-          [',n'] = '@function.outer',
+          ['}{'] = '@function.outer',
           [']['] = '@class.outer',
         },
         goto_previous_start = {
-          ['.m'] = '@function.outer',
+          ['{{'] = '@function.outer',
           ['[['] = '@class.outer',
         },
         goto_previous_end = {
-          ['.n'] = '@function.outer',
+          ['{}'] = '@function.outer',
           ['[]'] = '@class.outer',
         },
       },
