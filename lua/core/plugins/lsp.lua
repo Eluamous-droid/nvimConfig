@@ -76,6 +76,7 @@ local servers = {
   -- rust_analyzer = {},
   -- tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
+  terraformls = {},
 
   lua_ls = {
     Lua = {
@@ -84,7 +85,6 @@ local servers = {
     },
   },
 }
-
 -- Setup neovim lua configuration
 require('neodev').setup()
 
@@ -99,6 +99,14 @@ mason_lspconfig.setup {
   ensure_installed = vim.tbl_keys(servers),
 }
 
+-- Set additional filetypes
+-- tfvars gave exception that made it impossible to work on the files
+-- Dirty unrecommend workaround
+vim.filetype.add({
+  extension = {
+    tfvars = "terraform"
+  }
+})
 mason_lspconfig.setup_handlers {
   function(server_name)
     require('lspconfig')[server_name].setup {

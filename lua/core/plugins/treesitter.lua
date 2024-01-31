@@ -4,7 +4,7 @@
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
     -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { 'java', 'go', 'lua', 'vimdoc', 'vim' },
+    ensure_installed = { 'java', 'go', 'lua', 'vimdoc', 'vim', 'terraform', 'hcl' },
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
     auto_install = false,
@@ -38,19 +38,19 @@ vim.defer_fn(function()
         enable = true,
         set_jumps = true, -- whether to set jumps in the jumplist
         goto_next_start = {
-          [',m'] = '@function.outer',
+          ['}}'] = '@function.outer',
           [']]'] = '@class.outer',
         },
         goto_next_end = {
-          [',n'] = '@function.outer',
+          ['}{'] = '@function.outer',
           [']['] = '@class.outer',
         },
         goto_previous_start = {
-          ['.m'] = '@function.outer',
+          ['{{'] = '@function.outer',
           ['[['] = '@class.outer',
         },
         goto_previous_end = {
-          ['.n'] = '@function.outer',
+          ['{}'] = '@function.outer',
           ['[]'] = '@class.outer',
         },
       },

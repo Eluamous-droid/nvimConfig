@@ -59,7 +59,7 @@ local config = {
   -- for a list of options
   settings = {
     java = {
-      autobuild = { enabled = false },
+      autobuild = { enabled = true },
       maxConcurrentBuilds = 8,
       signatureHelp = { enabled = true },
       contentProvider = { preferred = 'fernflower' },
