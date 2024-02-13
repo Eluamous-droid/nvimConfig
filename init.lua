@@ -96,7 +96,8 @@ require('lazy').setup({
   },
 
   {
-  "AlexvZyl/nordic.nvim",
+   "rebelot/kanagawa.nvim",
+  --"AlexvZyl/nordic.nvim",
    --"folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
@@ -109,7 +110,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'nordic',
+        theme = 'kanagawa',
         component_separators = '|',
         section_separators = '',
       },

@@ -4,7 +4,7 @@
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
     -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { 'java', 'go', 'lua', 'vimdoc', 'vim', 'terraform', 'hcl' },
+    ensure_installed = { 'java', 'go', 'lua', 'vimdoc', 'vim', 'terraform', 'hcl', 'yaml' },
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
     auto_install = false,
@@ -77,7 +77,5 @@ treesitter_parser_config.templ = {
 
 vim.treesitter.language.register('templ', 'templ')
 -- Diagnostic keymaps
-vim.keymap.set('n', '.d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
-vim.keymap.set('n', ',d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })

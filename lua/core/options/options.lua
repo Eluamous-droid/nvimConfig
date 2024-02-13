@@ -1,4 +1,4 @@
- vim.cmd [[colorscheme nordic]]
+ vim.cmd [[colorscheme kanagawa-dragon]]
 -- [[ Setting options ]]
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
