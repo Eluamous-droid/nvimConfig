@@ -17,7 +17,7 @@ local config = {
   cmd = {
 
     -- 💀
-    '/opt/homebrew/Cellar/openjdk@17/17.0.8.1/bin/java', -- or '/path/to/java17_or_newer/bin/java'
+    '/opt/homebrew/Cellar/openjdk@17/17.0.11/bin/java', -- or '/path/to/java17_or_newer/bin/java'
     -- depends on if `java` is in your $PATH env variable and if it points to the right version.
 
     '-Declipse.application=org.eclipse.jdt.ls.core.id1',
@@ -31,14 +31,14 @@ local config = {
     '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
 
     -- 💀
-    '-jar', '/opt/homebrew/Cellar/jdtls/1.28.0/libexec/plugins/org.eclipse.equinox.launcher_1.6.500.v20230717-2134.jar',
+    '-jar', '/opt/homebrew/Cellar/jdtls/1.35.0/libexec/plugins/org.eclipse.equinox.launcher_1.6.800.v20240330-1250.jar',
     -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
     -- Must point to the                                                     Change this to
     -- eclipse.jdt.ls installation                                           the actual version
 
 
     -- 💀
-    '-configuration', '/opt/homebrew/Cellar/jdtls/1.28.0/libexec/config_mac_arm/',
+    '-configuration', '/opt/homebrew/Cellar/jdtls/1.35.0/libexec/config_mac_arm/',
     -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
     -- Must point to the                      Change to one of `linux`, `win` or `mac`
     -- eclipse.jdt.ls installation            Depending on your system.
@@ -112,7 +112,7 @@ local config = {
           },
           {
             name = "JavaSE-17",
-            path = "/opt/homebrew/Cellar/openjdk@17/17.0.8.1/",
+            path = "/opt/homebrew/Cellar/openjdk@17/17.0.11/",
           },
         }
       },
