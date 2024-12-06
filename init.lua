@@ -43,6 +43,7 @@ require('lazy').setup({
       "mfussenegger/nvim-jdtls",
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
+      'https://gitlab.com/schrieveslaach/sonarlint.nvim',
     },
   },
 
@@ -185,6 +186,15 @@ require('lazy').setup({
 
   "ThePrimeagen/harpoon",
   "RRethy/vim-illuminate",
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    build = "cd app && yarn install",
+    init = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+    end,
+    ft = { "markdown" },
+  },
 }, {})
 require("core.options.options")
 require("core.options.remap")
