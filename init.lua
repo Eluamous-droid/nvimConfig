@@ -99,10 +99,10 @@ require('lazy').setup({
   {
    --"rebelot/kanagawa.nvim",
   --"AlexvZyl/nordic.nvim",
+    -- "dgox16/oldworld.nvim",
    "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
-    opts = {},
   },
   {
     -- Set lualine as statusline
@@ -172,6 +172,17 @@ require('lazy').setup({
     },
     build = ':TSUpdate',
   },
+  {
+  'stevearc/oil.nvim',
+  ---@module 'oil'
+  ---@type oil.SetupOpts
+  opts = {},
+  -- Optional dependencies
+  dependencies = { { "echasnovski/mini.icons", opts = {} } },
+  -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+  -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+  lazy = false,
+},
   "vrischmann/tree-sitter-templ",
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
@@ -234,7 +245,7 @@ require("tokyonight").setup({
   on_highlights = function(highlights, colors) end,
 })
 
-vim.cmd [[colorscheme tokyonight-night]]
+vim.cmd.colorscheme("tokyonight-night")
 
 
 

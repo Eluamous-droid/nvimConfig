@@ -135,8 +135,7 @@ local config = {
 -- This bundles definition is the same as in the previous section (java-debug installation)
 local bundles = {
   vim.fn.glob(
-   "/Users/dk000258/Documents/ForFun/jdtlsStuff/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar",
-    1),
+   "/Users/dk000258/Documents/ForFun/jdtlsStuff/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar", 1),
 };
 
 -- This is the new part
@@ -150,12 +149,14 @@ vim.keymap.set('n', "<leader>xc", "<cmd>lua require'jdtls'.test_nearest_method()
 -- This starts a new client & server,
 -- or attaches to an existing client & server depending on the `root_dir`.
 require('jdtls').start_or_attach(config)
+local lspConfig = require('lspconfig')
 require('sonarlint').setup({
    server = {
       cmd = {
-				 '/Library/Java/JavaVirtualMachines/openjdk-21.jdk/Contents/Home/bin/java',
+				'/Library/Java/JavaVirtualMachines/openjdk-21.jdk/Contents/Home/bin/java',
 				"-jar", vim.fn.expand("$MASON/packages/sonarlint-language-server/extension/server/sonarlint-ls.jar"),
          -- Ensure that sonarlint-language-server uses stdio channel
+					--'sonarlint-language-server',
          '-stdio',
          '-analyzers',
          -- paths to the analyzers you need, using those for python and java in this example

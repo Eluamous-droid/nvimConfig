@@ -1,7 +1,7 @@
 -- [[ Basic Keymaps ]]
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>pv", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 vim.keymap.set("n", "<C-H>", "<C-W>h")
 vim.keymap.set("n", "<C-J>", "<C-W>j")
