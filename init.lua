@@ -127,15 +127,6 @@ require('lazy').setup({
     },
   },
 
-  {
-    "folke/zen-mode.nvim",
-    opts = {
-      window = {
-    width = 180, -- width of the Zen window
-    height = 1,  -- height of the Zen window
-      }
-    }
-  },
 
   {
     -- Add indentation guides even on blank lines
@@ -148,7 +139,13 @@ require('lazy').setup({
 
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
-
+  {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    config = true
+    -- use opts = {} for passing setup options
+    -- this is equivalent to setup({}) function
+  },
   -- Fuzzy Finder (files, lsp, etc)
   {
     'nvim-telescope/telescope.nvim',
