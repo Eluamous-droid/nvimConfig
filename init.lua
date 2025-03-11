@@ -105,13 +105,22 @@ require('lazy').setup({
     priority = 1000,
   },
   {
+   --"rebelot/kanagawa.nvim",
+  --"AlexvZyl/nordic.nvim",
+    -- "dgox16/oldworld.nvim",
+   --"folke/tokyonight.nvim",
+    'scottmckendry/cyberdream.nvim',
+    lazy = false,
+    priority = 1000,
+  },
+  {
     -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
     -- See `:help lualine.txt`
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'tokyonight',
+        theme = 'cyberdream',
         component_separators = '|',
         section_separators = '',
       },
@@ -244,8 +253,7 @@ require("tokyonight").setup({
   ---@param colors ColorScheme
   on_highlights = function(highlights, colors) end,
 })
-
-vim.cmd.colorscheme("tokyonight-night")
+vim.cmd.colorscheme("cyberdream")
 
 
 
