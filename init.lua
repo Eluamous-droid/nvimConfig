@@ -212,6 +212,15 @@ require('lazy').setup({
     end,
     ft = { "markdown" },
   },
+  {
+    'nvim-flutter/flutter-tools.nvim',
+    lazy = false,
+    dependencies = {
+        'nvim-lua/plenary.nvim',
+        'stevearc/dressing.nvim', -- optional for vim.ui.select
+    },
+    config = true,
+}
 }, {})
 require("core.options.options")
 require("core.options.remap")
