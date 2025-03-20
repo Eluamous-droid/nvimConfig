@@ -50,7 +50,7 @@ on_attach = function(client, bufnr)
 end
 
 -- document existing key chains
-require('which-key').register({
+require('which-key').add({
   ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
   ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
   ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },

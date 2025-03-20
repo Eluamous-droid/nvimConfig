@@ -1,36 +1,24 @@
+local wk = require("which-key")
 
+wk.add({
+    { "<leader>l", group = "Litee Calltree" },
+    { "<leader>lC", "<cmd>LTCollapseAllCalltree<cr>", desc = "Collapse All" },
+    { "<leader>lI", "<cmd>lua require('litee.lib.lsp.wrappers').buf_incoming_calls()<cr>", desc = "LSP Incoming Calls" },
+    { "<leader>lJ", "<cmd>LTJumpCalltreeSplit<cr>", desc = "Jump in Split" },
+    { "<leader>lO", "<cmd>lua require('litee.lib.lsp.wrappers').buf_outgoing_calls()<cr>", desc = "LSP Outgoing Calls" },
+    { "<leader>lT", "<cmd>LTJumpCalltreeTab<cr>", desc = "Jump in Tab" },
+    { "<leader>lc", "<cmd>LTCollapseCalltree<cr>", desc = "Collapse Call" },
+    { "<leader>ld", "<cmd>LTDetailsCalltree<cr>", desc = "Show Call Details" },
+    { "<leader>le", "<cmd>LTExpandCalltree<cr>", desc = "Expand Call" },
+    { "<leader>lf", "<cmd>LTFocusCalltree<cr>", desc = "Focus Calltree" },
+    { "<leader>lh", "<cmd>LTHoverCalltree<cr>", desc = "Hover Details" },
+    { "<leader>lj", "<cmd>LTJumpCalltree<cr>", desc = "Jump to Call" },
+    { "<leader>lo", "<cmd>LTOpenToCalltree<cr>", desc = "Open Calltree" },
+    { "<leader>ls", "<cmd>LTSwitchCalltree<cr>", desc = "Switch Calltree" },
+    { "<leader>lt", "<cmd>LTPanel<cr>", desc = "Toggle Panel" },
+    { "<leader>lv", "<cmd>LTJumpCalltreeVSplit<cr>", desc = "Jump in Vertical Split" },
+    { "<leader>lx", "<cmd>LTCloseCalltree<cr>", desc = "Close Calltree" },
+    { "[l", "<cmd>LTPrevCalltree<cr>", desc = "Previous Call in Tree" },
+    { "]l", "<cmd>LTNextCalltree<cr>", desc = "Next Call in Tree" },
+})
 
- require('litee.lib').setup{
-        tree = {
-            icon_set = "codicons"
-        },
-        panel = {
-            orientation = "bottom",
-            panel_size  = 10
-        }
-    }
-    require('litee.calltree').setup{
-        icon_set = "codicons",
-    }
-  vim.api.nvim_set_keymap("n", "<C-t>",   ":LTPanel<cr>", { silent = true })
-  -- 
-  -- 
-  -- calltree specific commands
-  vim.api.nvim_set_keymap("n", "<F3>",     ":LTOpenToCalltree<cr>", { silent = true })
-  vim.api.nvim_set_keymap("n", "<F9>",     ":LTNextCalltree<cr>", { silent = true })
-  vim.api.nvim_set_keymap("n", "<F10>",     ":LTPrevCalltree<cr>", { silent = true })
-  vim.api.nvim_set_keymap("n", "<F33>",     ":LTExpandCalltree<cr>", { silent = true })
-  vim.api.nvim_set_keymap("n", "<F34>",     ":LTCollapseCalltree<cr>", { silent = true })
-  vim.api.nvim_set_keymap("n", "<F5>",     ":LTCollapseAllCalltree<cr>", { silent = true })
-  vim.api.nvim_set_keymap("n", "<C-c>f",     ":LTFocusCalltree<cr>", { silent = true })
-  vim.api.nvim_set_keymap("n", "<C-c>S",     ":LTSwitchCalltree<cr>", { silent = true })
-  vim.api.nvim_set_keymap("n", "<F8>",     ":LTJumpCalltree<cr>", { silent = true })
-  vim.api.nvim_set_keymap("n", "<C-c>s",     ":LTJumpCalltreeSplit<cr>", { silent = true })
-  vim.api.nvim_set_keymap("n", "<C-c>v",     ":LTJumpCalltreeVSplit<cr>", { silent = true })
-  vim.api.nvim_set_keymap("n", "<C-c>t",     ":LTJumpCalltreeTab<cr>", { silent = true })
-  vim.api.nvim_set_keymap("n", "<C-c>h",     ":LTHoverCalltree<cr>", { silent = true })
-  vim.api.nvim_set_keymap("n", "<C-c>d",     ":LTDetailsCalltree<cr>", { silent = true })
-  vim.api.nvim_set_keymap("n", "<F4>",     ":LTCloseCalltree<cr>", { silent = true })
-  -- 
-  vim.api.nvim_set_keymap("n", "<F2>", "<cmd>lua require('litee.lib.lsp.wrappers').buf_outgoing_calls()<CR>", { silent = true })
-  vim.api.nvim_set_keymap("n", "<F1>", "<cmd>lua require('litee.lib.lsp.wrappers').buf_incoming_calls()<CR>", { silent = true })
