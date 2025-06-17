@@ -5,5 +5,6 @@
 require ("core.plugins.harpoon")
 require ("core.plugins.litee")
 require("core.plugins.lsp")
-require("core.plugins.telescope")
+-- require("core.plugins.telescope")
 require("core.plugins.treesitter")
+require("core.plugins.snacks")
