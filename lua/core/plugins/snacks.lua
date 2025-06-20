@@ -24,7 +24,8 @@ return {  "folke/snacks.nvim",
 			notification = {
 				wo = { wrap = true } -- Wrap notifications
 			}
-		}
+		},
+		dim = { animate = { enabled = false } },
 	},
 	keys = {
 		-- Top Pickers & Explorer
