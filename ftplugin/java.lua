@@ -17,7 +17,7 @@ local config = {
   cmd = {
 
     -- 💀
-    '/Users/dk000258/Documents/ForFun/jdtlsStuff/redhat.java-1.38.0-darwin-arm64/jre/17.0.13-macosx-aarch64/bin/java', -- or '/path/to/java17_or_newer/bin/java'
+    '/Users/dk000258/Documents/ForFun/jdtlsStuff/openjdk21/21.0.9/bin/java', -- or '/path/to/java17_or_newer/bin/java'
     --'/Library/Java/JavaVirtualMachines/openjdk-21.jdk/Contents/Home/bin/java', -- or '/path/to/java17_or_newer/bin/java'
     -- depends on if `java` is in your $PATH env variable and if it points to the right version.
 
@@ -35,14 +35,14 @@ local config = {
     -- 💀
 
 		--'-jar', '/Users/dk000258/Documents/ForFun/jdtlsStuff/jdt-language-server-1.28.0-202309281329/plugins/org.eclipse.equinox.launcher_1.6.500.v20230717-2134.jar',
-		'-jar', '/Users/dk000258/Documents/ForFun/jdtlsStuff/jdt-language-server-1.36.0-202405301306/plugins/org.eclipse.equinox.launcher_1.6.800.v20240513-1750.jar',
+		'-jar', '/Users/dk000258/Documents/ForFun/jdtlsStuff/jdt-language-server-1.51.0-202510022025/plugins/org.eclipse.equinox.launcher_1.7.0.v20250519-0528.jar',
     -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
     -- Must point to the                                                     Change this to
     -- eclipse.jdt.ls installation                                           the actual version
 
 
     -- 💀
-    '-configuration', '/Users/dk000258/Documents/ForFun/jdtlsStuff/jdt-language-server-1.36.0-202405301306/config_mac_arm/',
+    '-configuration', '/Users/dk000258/Documents/ForFun/jdtlsStuff/jdt-language-server-1.51.0-202510022025/config_mac_arm/',
 
     -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
     -- Must point to the                      Change to one of `linux`, `win` or `mac`

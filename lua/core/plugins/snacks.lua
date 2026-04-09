@@ -37,7 +37,7 @@ return {  "folke/snacks.nvim",
 		-- find
 		{ "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
 		{ "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
-		{ "<leader>sf", function() Snacks.picker.files() end, desc = "Find Files" },
+		{ "<leader>sf", function() Snacks.picker.smart() end, desc = "Find Files" },
 		-- { "<leader>sg", function() Snacks.picker.git_files() end, desc = "Find Git Files" },
 		{ "<leader>fp", function() Snacks.picker.projects() end, desc = "Projects" },
 		{ "<leader>sr", function() Snacks.picker.recent() end, desc = "Recent" },
