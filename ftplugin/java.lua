@@ -35,14 +35,15 @@ local config = {
     -- 💀
 
 		--'-jar', '/Users/dk000258/Documents/ForFun/jdtlsStuff/jdt-language-server-1.28.0-202309281329/plugins/org.eclipse.equinox.launcher_1.6.500.v20230717-2134.jar',
-		'-jar', '/Users/dk000258/Documents/ForFun/jdtlsStuff/jdt-language-server-1.51.0-202510022025/plugins/org.eclipse.equinox.launcher_1.7.0.v20250519-0528.jar',
+		-- '-jar', '/Users/dk000258/Documents/ForFun/jdtlsStuff/jdt-language-server-1.51.0-202510022025/plugins/org.eclipse.equinox.launcher_1.7.0.v20250519-0528.jar',
+		'-jar', '/Users/dk000258/Documents/ForFun/jdtlsStuff/jdt-language-server-1.57.0-202602261110/plugins/org.eclipse.equinox.launcher_1.7.100.v20251111-0406.jar',
     -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
     -- Must point to the                                                     Change this to
     -- eclipse.jdt.ls installation                                           the actual version
 
 
     -- 💀
-    '-configuration', '/Users/dk000258/Documents/ForFun/jdtlsStuff/jdt-language-server-1.51.0-202510022025/config_mac_arm/',
+    '-configuration', '/Users/dk000258/Documents/ForFun/jdtlsStuff/jdt-language-server-1.57.0-202602261110/config_mac_arm/',
 
     -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
     -- Must point to the                      Change to one of `linux`, `win` or `mac`

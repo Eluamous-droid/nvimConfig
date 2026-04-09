@@ -2,7 +2,7 @@
 -- See `:help nvim-treesitter`
 -- Defer Treesitter setup after first render to improve startup time of 'nvim {filename}'
 vim.defer_fn(function()
-  require('nvim-treesitter.configs').setup {
+  require('nvim-treesitter').setup {
     -- Add languages to be installed here that you want installed for treesitter
     ensure_installed = { 'java', 'go', 'lua', 'vimdoc', 'vim', 'terraform', 'hcl', 'yaml', 'bash' },
 
@@ -66,16 +66,7 @@ vim.defer_fn(function()
     },
   }
 end, 0)
-local treesitter_parser_config = require "nvim-treesitter.parsers".get_parser_configs()
-treesitter_parser_config.templ = {
-  install_info = {
-    url = "https://github.com/vrischmann/tree-sitter-templ.git",
-    files = { "src/parser.c", "src/scanner.c" },
-    branch = "master",
-  },
-}
 
-vim.treesitter.language.register('templ', 'templ')
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
