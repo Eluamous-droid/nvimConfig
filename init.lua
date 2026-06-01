@@ -268,7 +268,14 @@ require('lazy').setup({
       -- see below for full list of options 👇
       legacy_commands = false,
     }
-  }
+  },
+  {
+  "lervag/wiki.vim",
+  -- tag = "v0.10", -- uncomment to pin to a specific release
+  init = function()
+    -- wiki.vim configuration goes here, e.g.
+  end
+  },
 }, {})
 require("core.options.options")
 require("core.options.remap")
